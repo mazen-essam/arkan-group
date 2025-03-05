@@ -1,8 +1,9 @@
 "use client";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-
+import { useState ,useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 export default function Validation() {
     const api_URL = "http://localhost:3001";
     let router = useRouter();
@@ -13,6 +14,12 @@ export default function Validation() {
         password: "",
         confirmPassword: "",
     });
+    useEffect(() => {
+        Aos.init({
+            duration: 700,
+            once: true,
+        });
+    }, []);
     let [errors, setErrors] = useState({});
 
     let handleChange = (e) => {
@@ -68,7 +75,7 @@ export default function Validation() {
     }
 
     return (
-        <div className=" flex items-center justify-center bg-gradient-to-b from-[rgba(75,2,75,0.655)] to-[rgba(213,56,213,0.852)] rounded-lg text-start">
+        <div className=" flex items-center justify-center bg-gradient-to-b from-[rgba(75,2,75,0.655)] to-[rgba(213,56,213,0.852)] rounded-lg text-start" data-aos="fade-in">
             <div className="w-full  p-8  rounded-lg shadow-lg">
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     {errors.general && (

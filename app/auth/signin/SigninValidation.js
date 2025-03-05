@@ -1,8 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useState, useCallback } from "react";
+import { useState, useCallback,useEffect } from "react";
 import { loginAction } from "./LoginAction";
-
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 export default function SigninValidation() {
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -10,7 +11,13 @@ export default function SigninValidation() {
     password: "",
   });
   const [errors, setErrors] = useState({});
-
+    useEffect(() => {
+        Aos.init({
+            duration: 700,
+            once: true,
+            });
+        }
+    , []);
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -54,7 +61,7 @@ export default function SigninValidation() {
   );
 
   return (
-    <div className="w-full  mx-auto p-8 bg-gradient-to-b from-[rgba(75,2,75,0.655)] to-[rgba(213,56,213,0.852)] rounded-lg shadow-lg">
+    <div className="w-full  mx-auto p-8 bg-gradient-to-b from-[rgba(75,2,75,0.655)] to-[rgba(213,56,213,0.852)] rounded-lg shadow-lg" data-aos="fade-in">
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* General Error Message */}
         {errors.general && (

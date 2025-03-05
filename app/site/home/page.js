@@ -2,8 +2,6 @@ import Image from "next/image";
 import Brands from "./Brands";
 import Rent from "./Rent";
 import Service from "./Service";
-import Navbar from "../Navbar";
-import Footer from "../Footer";
 import Pathways from "./Path";
 import BannerContainer from "app/componenets/banner/BannerContainer";
 import NewLunch from "app/componenets/newLunches/NewLunch";

@@ -2,6 +2,7 @@ import Image from "next/image";
 import SigninValidation from "./SigninValidation";
 
 export default function Signin() {
+  
   return (
     <section className="min-h-screen flex items-center justify-center py-12 pt-32 relative">
       {/* Background Image with Blur */}

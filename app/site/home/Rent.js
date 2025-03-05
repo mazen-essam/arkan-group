@@ -5,7 +5,9 @@ import RentCard from "../Cards/rentCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 const properties = [
   {
     id: 1,
@@ -81,11 +83,15 @@ export default function Rent() {
       },
     ],
   };
+  useEffect(() => {
+    Aos.init({ duration: 700, once: true });
+  }, []);
 
   return (
     <section
       style={{ padding: "50px 0" }}
       className="container mx-auto my-12 Rent"
+      data-aos="fade-up"
     >
       <h1 className="font-bold text-2xl mb-6">
         Explore our Apartments for service

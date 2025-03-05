@@ -1,9 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Image from "next/image";
 import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaClock } from "react-icons/fa";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 
 export default function PropertyListing() {
   const [formData, setFormData] = useState({
@@ -13,6 +16,12 @@ export default function PropertyListing() {
     location: "",
     description: "",
   });
+  useEffect(() => {
+    Aos.init({
+        duration: 700, // 1s animation duration
+        once: true, // Animation runs only once
+      });
+    }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,7 +48,7 @@ export default function PropertyListing() {
   return (
     <div className="min-h-screen  py-16 pt-96">
       {/* Flex container for Contact Us and Form */}
-      <div className="container mx-auto flex flex-col lg:flex-row gap-8 p-8 relative">
+      <div className="container mx-auto flex flex-col lg:flex-row gap-8 p-8 relative" >
         <div className="absolute w-full top-[-280px] left-0 right-0 z-[1] h-[28rem]">
           <Image
             src="/background3.jpg"
@@ -50,7 +59,7 @@ export default function PropertyListing() {
           />
         </div>
         {/* Contact Us Section on the left */}
-        <div className="w-full lg:w-1/3 relative z-10">
+        <div className="w-full lg:w-1/3 relative z-10" data-aos="fade-right">
       <div className="p-8 ">
         <h1 className="text-3xl font-bold mb-32 text-white lg:text-start text-center">Contact Us</h1>
         <div className="space-y-6">
@@ -102,7 +111,7 @@ export default function PropertyListing() {
       </div>
     </div>
         {/* Form on the right */}
-        <div className="w-full xl:w-1/3 lg:w-1/2 ms-auto me-10 relative z-10">
+        <div className="w-full xl:w-1/3 lg:w-1/2 ms-auto me-10 relative z-10" data-aos="fade-left">
           <div className="p-8 shadow-lg rounded-lg bg-gray-200">
             <h2 className="text-3xl font-semibold text-center mb-16 ">
               Contact Form

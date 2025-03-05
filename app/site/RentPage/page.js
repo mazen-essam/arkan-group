@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import RentCardList from "../Cards/rentCardListView";
-
+import { useEffect } from "react";
+import AOS from "aos";
 export default function RentPage() {
   const rentList = [
     {
@@ -112,12 +113,20 @@ export default function RentPage() {
       matchesPaymentPlan
     );
   });
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // Animation duration
+      once: true, // Ensures animation runs once
+      easing: "ease-in-out",
+    });
+  }, []);
+
 
   return (
     <section className="container mx-auto p-4 pt-24">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Sidebar Filters */}
-        <aside className="md:col-span-1 p-4 border rounded-lg">
+        <aside className="md:col-span-1 p-4 border rounded-lg" data-aos="fade-right">
           <h2 className="text-lg font-semibold mb-4">Filters</h2>
 
           {/* Search Bar */}
@@ -254,7 +263,7 @@ export default function RentPage() {
           </h1>
 
           {/* Property Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8" data-aos="fade-left">
             {filteredList.length > 0 ? (
               filteredList.map((item) => (
                 <RentCardList key={item.id} property={item} />

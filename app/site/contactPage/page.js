@@ -52,7 +52,7 @@ export default function PropertyListing() {
         {/* Contact Us Section on the left */}
         <div className="w-full lg:w-1/3 relative z-10">
       <div className="p-8 ">
-        <h1 className="text-3xl font-bold mb-32 text-white">Contact Us</h1>
+        <h1 className="text-3xl font-bold mb-32 text-white lg:text-start text-center">Contact Us</h1>
         <div className="space-y-6">
           {/* Location */}
           <div className="flex items-start space-x-4">
@@ -102,7 +102,7 @@ export default function PropertyListing() {
       </div>
     </div>
         {/* Form on the right */}
-        <div className="w-full lg:w-1/3 ms-auto me-10 relative z-10">
+        <div className="w-full xl:w-1/3 lg:w-1/2 ms-auto me-10 relative z-10">
           <div className="p-8 shadow-lg rounded-lg bg-gray-200">
             <h2 className="text-3xl font-semibold text-center mb-16 ">
               Contact Form

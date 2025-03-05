@@ -114,7 +114,7 @@ export default function RentPage() {
   });
 
   return (
-    <section className="container mx-auto p-4">
+    <section className="container mx-auto p-4 pt-24">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Sidebar Filters */}
         <aside className="md:col-span-1 p-4 border rounded-lg">

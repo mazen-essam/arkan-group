@@ -39,7 +39,7 @@ export default function ServicePage() {
     };
 
     return (
-        <section className="container mx-auto py-12">
+        <section className="container mx-auto py-12 pt-44">
             {/* Logo Section */}
             <div className="text-center flex justify-center">
                 <Image 

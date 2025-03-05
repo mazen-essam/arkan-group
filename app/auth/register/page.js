@@ -1,71 +1,73 @@
 import Image from "next/image";
-import Link from 'next/link';
+import Link from "next/link";
 import ChooseCountry from "./ChooseCountry";
 
-export default function register() {
+export default function Register() {
+  return (
+    <section className="min-h-screen flex flex-col items-center justify-center py-12 pt-32 relative">
+      {/* Background Image with Blur */}
+      <div className="absolute inset-0 bg-[url('/background3.jpg')] bg-cover bg-center before:absolute before:inset-0 before:bg-black before:bg-opacity-50 before:backdrop-blur-md"></div>
 
-    return (
-        <section className='register' style={{ padding: '10px 0' }}>
-            <nav style={{ display: 'flex', justifyContent: 'space-between', margin: '0 50px',fontSize:'13px' }}>
-                <div>
-                    <Image
-                        src='/logo.png'
-                        alt='Logo'
-                        width={50}
-                        height={50}
-                    />
-                </div>
-                <div className="relative group" style={{ display: 'inline-block', marginRight: '8px', verticalAlign: 'middle' }} >
-                    <ChooseCountry />
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Navbar */}
+       
 
-                </div>
-            </nav>
-            <div className='registerContent' style={{ width: '30%', fontSize:'13px' ,margin: '40px auto',textAlign:'center' }}>
-                <div>
-                    <h2>Create Aqar tech Account</h2>
-                    <p className='my-5'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                </div>
-                <div className='options mb-5'>
-                    <Link href="/auth/signup">
-                        <button className='w-full bg-gray-300 hover:bg-gray-400 text-black font-bold py-5 px-5 rounded focus:outline-none focus:ring-2 focus:ring-gray-300' style={{
+        {/* Card Container */}
+        <div className="max-w-3xl mx-auto bg-gray-300 rounded-2xl shadow-2xl p-8 text-center">
+        <nav className="flex justify-between items-center mb-8 px-8">
+          <Image src="/arkan-logo.png" alt="Logo" width={100} height={100} />
+          <div className="relative">
+            <ChooseCountry />
+          </div>
+        </nav>
+          {/* Heading */}
+          <h2 className="font-bold text-3xl text-gray-800">Create Aqar Tech Account</h2>
+          <p className="text-gray-500 mt-4 text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
 
-                        }}><span><i className="fas fa-envelope" style={{ fontSize: 'large', marginRight: '4px' }}></i></span> Sign up with email</button>
-                    </Link>
-                    <button className='w-full bg-gray-300 hover:bg-gray-400 text-black font-bold my-3 py-5 px-5 rounded focus:outline-none focus:ring-2 focus:ring-gray-300' style={{
+          {/* Sign-Up Options */}
+          <div className="mt-6 space-y-4">
+            <Link href="/auth/signup">
+              <button className="w-full bg-gray-300 hover:bg-gray-400 text-black font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 flex items-center justify-center">
+                <i className="fas fa-envelope text-lg mr-2"></i> Sign up with Email
+              </button>
+            </Link>
 
-                    }}><span><i style={{ fontSize: 'large', marginRight: '4px' }} className="fab fa-google"></i></span> Sign up with email</button>
+            <button className="w-full bg-gray-300 hover:bg-gray-400 text-black font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 flex items-center justify-center">
+              <i className="fab fa-google text-lg mr-2"></i> Sign up with Google
+            </button>
 
-                    <button className='w-full bg-gray-300 hover:bg-gray-400 text-black font-bold py-5 px-5 rounded focus:outline-none focus:ring-2 focus:ring-gray-300' style={{
+            <button className="w-full bg-gray-300 hover:bg-gray-400 text-black font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 flex items-center justify-center">
+              <i className="fab fa-facebook text-lg mr-2 text-blue-600"></i> Sign up with Facebook
+            </button>
+          </div>
 
-                    }}><span><i style={{ fontSize: 'larger', marginRight: '4px', color: 'blue' }} className="fab fa-facebook"></i></span> Sign up with facebook</button>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <div style={{ height: '1px', width: '48%', background: 'gray' }}></div>
-                        <span style={{ margin: '0 10px', width: '4%', textAlign: 'center', color: 'gray' }}>or</span>
-                        <div style={{ height: '1px', width: '48%', background: 'gray' }}></div>
-                    </div>
-                    <div>
-                        <p className='mt-5' style={{ fontWeight: 'bold' }}>Already have Aqar account? <span>
-                            <Link href="/auth/signin">
-                                <button style={{ cursor: 'pointer', color: 'purple' }}>Log in</button>
-                            </Link>
-                        </span>
-                        </p>
-                    </div>
-                </div>
-                <div style={{ position: 'absolute', bottom: '20px', left: '20px' }}>
-                    <p style={{ fontSize: '14px' }}>
-                        By proceeding, you agree to the
-                        <span style={{ color: 'purple', cursor: 'pointer' }}> terms and conditions </span>
-                        and
-                        <span style={{ color: 'purple', cursor: 'pointer' }}> privacy policy</span>.
-                    </p>
-                </div>
-            </div>
-        </section >
-    )
+          {/* Divider */}
+          <div className="flex items-center justify-center my-6">
+            <div className="h-px w-1/4 bg-gray-400"></div>
+            <span className="mx-4 text-gray-500 text-sm">or</span>
+            <div className="h-px w-1/4 bg-gray-400"></div>
+          </div>
+
+          {/* Login Link */}
+          <p className="mt-5 font-semibold">
+            Already have an Aqar account?{' '}
+            <Link href="/auth/signin">
+              <button className="text-purple-600 hover:text-purple-700">Log in</button>
+            </Link>
+          </p>
+        </div>
+
+        {/* Terms and Conditions */}
+        <div className="text-center mt-6 text-sm text-gray-500">
+          <p>
+            By proceeding, you agree to the{' '}
+            <span className="text-purple-600 hover:text-purple-700 cursor-pointer">terms and conditions</span> and{' '}
+            <span className="text-purple-600 hover:text-purple-700 cursor-pointer">privacy policy</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 }

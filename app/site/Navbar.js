@@ -2,46 +2,43 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react"; // Import useEffect
-import { usePathname } from "next/navigation"; // Import usePathname
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import userRole from "../userRole";
 
 export default function Navbar() {
     const user = userRole();
     const token = "test";
     const [menuOpen, setMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false); // State to track scroll position
-    const pathname = usePathname(); // Get the current pathname
+    const [isScrolled, setIsScrolled] = useState(false);
+    const pathname = usePathname();
 
-    // Add scroll event listener
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
-                setIsScrolled(true); // User has scrolled
+                setIsScrolled(true);
             } else {
-                setIsScrolled(false); // User is at the top
+                setIsScrolled(false);
             }
         };
 
-        // Only add scroll listener on the home page
-        if (pathname === "/site/home") {
-            window.addEventListener("scroll", handleScroll); // Attach scroll listener
+        if (pathname === "/site/home" || pathname.startsWith("/auth")) {
+            window.addEventListener("scroll", handleScroll);
         }
 
         return () => {
-            if (pathname === "/site/home") {
-                window.removeEventListener("scroll", handleScroll); // Cleanup
+            if (pathname === "/site/home" || pathname.startsWith("/auth")) {
+                window.removeEventListener("scroll", handleScroll);
             }
         };
     }, [pathname]);
 
-    // Determine navbar styles based on the current page
-    const isHomePage = pathname === "/site/home";
-    const navbarStyles = isHomePage
+    const isTransparentPage = pathname === "/site/home" || pathname.startsWith("/auth");
+    const navbarStyles = isTransparentPage
         ? isScrolled
-            ? "bg-white text-gray-800 shadow-md" // Scrolled on home page
-            : "bg-transparent text-white" // Top of home page
-        : "bg-white text-gray-800 shadow-md"; // Other pages
+            ? "bg-white text-gray-800 shadow-md"
+            : "bg-transparent text-white"
+        : "bg-white text-gray-800 shadow-md";
 
     return (
         <nav className={`fixed w-full z-50 transition-colors duration-300 ${navbarStyles}`}>
@@ -65,7 +62,7 @@ export default function Navbar() {
                             <Link href="/site/profile">
                                 <button
                                     className={`flex items-center justify-center w-10 h-10 rounded-full transition ${
-                                        isHomePage && !isScrolled
+                                        isTransparentPage && !isScrolled
                                             ? "bg-white/20 hover:bg-white/30"
                                             : "bg-gray-200 hover:bg-gray-300"
                                     }`}
@@ -77,7 +74,7 @@ export default function Navbar() {
                             <Link href="/site/AdminProfile">
                                 <button
                                     className={`flex items-center justify-center w-10 h-10 rounded-full transition ${
-                                        isHomePage && !isScrolled
+                                        isTransparentPage && !isScrolled
                                             ? "bg-white/20 hover:bg-white/30"
                                             : "bg-gray-200 hover:bg-gray-300"
                                     }`}
@@ -90,7 +87,7 @@ export default function Navbar() {
                                 <Link href="/auth/signin">
                                     <button
                                         className={`hover:text-gray-300 px-4 py-2 rounded-md text-sm font-medium ${
-                                            isHomePage && !isScrolled
+                                            isTransparentPage && !isScrolled
                                                 ? "text-white"
                                                 : "text-gray-800 hover:bg-gray-100"
                                         }`}
@@ -101,7 +98,7 @@ export default function Navbar() {
                                 <Link href="/auth/register">
                                     <button
                                         style={{
-                                            background: isHomePage && !isScrolled
+                                            background: isTransparentPage && !isScrolled
                                                 ? "linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3))"
                                                 : "linear-gradient(to bottom, rgba(75, 2, 75, 0.655), rgba(213, 56, 213, 0.852))",
                                         }}

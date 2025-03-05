@@ -42,14 +42,14 @@ export default function ChooseCountry() {
             {isDropdownVisible && (
                 <ul
                     style={{
-                        background: '#333',  // Dark gray background
+                        background: '',  // Dark gray background
                         width: '100%',
                     }}
                     className="absolute right-0 z-10 mt-2 bg-white border rounded-lg shadow-lg dark:bg-surface-dark"
                 >
                     <li
                         style={{ cursor: 'pointer' }}
-                        className="flex items-center px-4 py-2 text-sm text-gray-800 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-600"
+                        className="flex items-center px-4 py-2 text-sm text-gray-800 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-300"
                         onClick={() => handleSelectOption('Egypt', '/egyptflag.png')}  // Set country to Egypt with flag
                     >
                         <img
@@ -61,7 +61,7 @@ export default function ChooseCountry() {
                     </li>
                     <li
                         style={{ cursor: 'pointer' }}
-                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-600"
+                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-300"
                         onClick={() => handleSelectOption('United Arab Emirates', '/uaeflag.png')}  // Set country to UAE with flag
                     >
                         <img
@@ -73,7 +73,7 @@ export default function ChooseCountry() {
                     </li>
                     <li
                         style={{ cursor: 'pointer' }}
-                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-600"
+                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-300"
                         onClick={() => handleSelectOption('Other', '')}  // Set country to Other without a flag
                     >
                         Other

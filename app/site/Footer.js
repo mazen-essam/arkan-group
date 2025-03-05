@@ -3,7 +3,7 @@ import { FaGithub, FaTwitter, FaBlog, FaQuestionCircle, FaEnvelope, FaHeart } fr
 
 export default function Footer() {
   return (
-    <section className="bg-gray-900 text-white border-t-2 border-gray-800 mt-16">
+    <section className="bg-gray-900 text-white border-t-2 border-gray-800 ">
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col md:flex-row justify-between gap-8">
           {/* Short Description Section */}
